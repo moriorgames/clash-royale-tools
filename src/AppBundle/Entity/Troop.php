@@ -26,7 +26,7 @@ class Troop
     /**
      * @var int
      *
-     * @ORM\Column(type="integer", options={"default"=0})
+     * @ORM\Column(name="troop_level", type="integer", options={"default"=0})
      * @Assert\Type(type="integer")
      */
     private $level;
@@ -58,7 +58,7 @@ class Troop
     /**
      * @var int
      *
-     * @ORM\Column(type="integer", options={"default"=0})
+     * @ORM\Column(name="troop_range", type="decimal", precision=2, scale=1)
      * @Assert\Type(type="integer")
      */
     private $range;

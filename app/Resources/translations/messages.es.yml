@@ -1,0 +1,8 @@
+project_name: Clash Royale Tools
+project_welcome: "<span>Bienvenidos</span> al calculador de eficiencia de Clash Royale"
+project_description: "Clash Royale Tools es un proyecto creado para medir diferentes factores de eficiencia de las tropas. Las tropas se pueden actualizar para tener el listado de tropas al día. Se pueden añadir también nuevos elementos a la base de datos. Si algún dato no es correcto edítalo y obtendrás unos resultados de eficiencia actualizados"
+menu:
+    homepage: Inicio
+    crud:
+        list: Listado de tropas
+        edit: Crea o edita tropas

@@ -5,33 +5,11 @@
         <div id="container">
 
             <div id="welcome">
-                <h1>Crud list</h1>
+                <h1>{{ 'menu.crud.list'|trans }}</h1>
             </div>
 
             {% for troop in troops %}
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-6">Name: {{ troop.name }}</div>
-                        <div class="col-md-6">Type: {{ troop.battleEntityType }}</div>
-
-                        <div class="col-md-6">Hit points: {{ troop.hitPoints }}</div>
-                        <div class="col-md-6">DPS: {{ troop.dps }}</div>
-
-                        <div class="col-md-6">Damage: {{ troop.damage }}</div>
-                        <div class="col-md-6">Speed: {{ troop.hitSpeed }}</div>
-
-                        <div class="col-md-6">Target: {{ troop.target }}</div>
-                        <div class="col-md-6">Speed: {{ troop.speed }}</div>
-
-                        <div class="col-md-6">Range: {{ troop.range }}</div>
-                        <div class="col-md-6">Cost: {{ troop.cost }}</div>
-
-                        <div class="col-md-12">
-                            <a href="{{ path('crud_edit', {id: troop.id}) }}">Edit this entity</a>
-                        </div>
-                    </div>
-                </div>
-
+                {% include '@App/templates/troop.html.twig' %}
             {% endfor %}
 
         </div>

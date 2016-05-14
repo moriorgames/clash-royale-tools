@@ -1,0 +1,98 @@
+<form action="{{ path('crud_update') }}" method="post" name="crud_update">
+
+    <input type="hidden" name="id" value="{{ troop.id }}"/>
+
+    <div class="col-md-6 card-info">
+        <div class="row">
+
+            <div class="meta">
+                <div class="col-md-6 pull-left">
+                    {% if troop.slug is null %}
+                        {% set imagePath = 'images/troop/default.jpg' %}
+                    {% else %}
+                        {% set imagePath = 'images/troop/' ~ troop.slug ~ '.png' %}
+                    {% endif %}
+                    <img src="{{ asset(imagePath) }}"/>
+                </div>
+                <div class="col-md-6 pull-left">
+                    <div class="col-md-12">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name"
+                               value="{{ troop.name }}" class="form-control"/>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="battleEntityType">Type:</label>
+                        {% set types =  constant('CoreBundle\\Constants::BATTLE_ENTITY_TYPES') %}
+                        <select id="battleEntityType" name="battleEntityType" class="form-control">
+                            {% for type in types %}
+                                <option value="{{ type }}">{{ type }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="level">Level:</label>
+                        <input type="text" id="level" name="level"
+                               value="{{ troop.level }}" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="hitPoints">Hit points:</label>
+                <input type="text" id="hitPoints" name="hitPoints"
+                       value="{{ troop.hitPoints }}" class="form-control"/>
+            </div>
+            <div class="col-md-6">
+                <label for="dps">DPS:</label>
+                <input type="text" id="dps" name="dps"
+                       value="{{ troop.dps }}" class="form-control"/>
+            </div>
+
+            <div class="col-md-6">
+                <label for="damage">Damage:</label>
+                <input type="text" id="damage" name="damage"
+                       value="{{ troop.damage }}" class="form-control"/>
+            </div>
+            <div class="col-md-6">
+                <label for="speed">Speed:</label>
+                {% set movements =  constant('CoreBundle\\Constants::BATTLE_ENTITY_MOVEMENTS') %}
+                <select id="speed" name="speed" class="form-control">
+                    {% for speed in movements %}
+                        <option value="{{ speed }}">{{ speed }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="target">Target:</label>
+                {% set targets =  constant('CoreBundle\\Constants::BATTLE_ENTITY_TARGETS') %}
+                <select id="target" name="target" class="form-control">
+                    {% for target in targets %}
+                        <option value="{{ target }}">{{ target }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="hitSpeed">Hit Speed:</label>
+                <input type="text" id="hitSpeed" name="hitSpeed"
+                       value="{{ troop.hitSpeed }}" class="form-control"/>
+            </div>
+
+            <div class="col-md-6">
+                <label for="range">Range:</label>
+                <input type="text" id="range" name="range"
+                       value="{{ troop.range }}" class="form-control"/>
+            </div>
+            <div class="col-md-6">
+                <label for="cost">Cost:</label>
+                <input type="text" id="cost" name="cost"
+                       value="{{ troop.cost }}" class="form-control"/>
+            </div>
+
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Edit"/>
+            </div>
+
+        </div>
+    </div>
+</form>

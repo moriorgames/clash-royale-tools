@@ -5,50 +5,10 @@
         <div id="container">
 
             <div id="welcome">
-                <h1>Crud edit</h1>
+                <h1>{{ 'menu.crud.edit'|trans }}</h1>
             </div>
 
-            <form>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" name="name"
-                                   value="{{ troop.name }}" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                            <label for="type">Type:</label>
-                            <input type="text" id="type" name="type"
-                                   value="{{ troop.battleEntityType }}" class="form-control" />
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="hitpoints">Hit points:</label>
-                            <input type="text" id="hitpoints" name="hitpoints"
-                                   value="{{ troop.hitPoints }}" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                            <label for="dps">DPS:</label>
-                            <input type="text" id="dps" name="dps"
-                                   value="{{ troop.dps }}" class="form-control" />
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="damage">Damage:</label>
-                            <input type="text" id="damage" name="damage"
-                                   value="{{ troop.damage }}" class="form-control" />
-                        </div>
-                        <div class="col-md-6">Speed: {{ troop.hitSpeed }}</div>
-
-                        <div class="col-md-6">Target: {{ troop.target }}</div>
-                        <div class="col-md-6">Speed: {{ troop.speed }}</div>
-
-                        <div class="col-md-6">Range: {{ troop.range }}</div>
-                        <div class="col-md-6">Cost: {{ troop.cost }}</div>
-                    </div>
-                </div>
-            </form>
-
+            {% include '@App/templates/troopForm.html.twig' %}
 
         </div>
     </div>
