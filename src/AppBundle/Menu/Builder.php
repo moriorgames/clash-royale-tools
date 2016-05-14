@@ -20,6 +20,10 @@ class Builder implements ContainerAwareInterface
 
         $menu->addChild('menu.homepage', ['route' => 'calculate']);
         $menu->addChild('menu.crud.list', ['route' => 'crud_list']);
+        $menu->addChild('menu.crud.edit', [
+            'route' => 'crud_edit',
+            'routeParameters' => ['id' => 0]
+        ]);
 
         return $menu;
     }

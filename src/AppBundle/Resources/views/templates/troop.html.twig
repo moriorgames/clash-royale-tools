@@ -1,0 +1,64 @@
+<div class="col-md-6 card-info">
+    <div class="row">
+
+        <div class="meta">
+            <div class="col-md-6 pull-left">
+                {% set imagePath = 'images/troop/' ~ troop.slug ~ '.png'  %}
+                <img src="{{ asset(imagePath) }}" />
+            </div>
+            <div class="col-md-6 pull-left">
+                <div class="col-md-12">
+                    <label>Name:</label>
+                    {{ troop.name }}
+                </div>
+                <div class="col-md-12">
+                    <label>Type:</label>
+                    {{ troop.battleEntityType }}
+                </div>
+                <div class="col-md-12">
+                    <label>Level:</label>
+                    {{ troop.level }}
+                </div>
+                <div class="col-md-12">
+                    <a href="{{ path('crud_edit', {id: troop.id}) }}">Edit</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label>Hit points:</label>
+            {{ troop.hitPoints }}
+        </div>
+        <div class="col-md-6">
+            <label>DPS:</label>
+            {{ troop.dps }}
+        </div>
+
+        <div class="col-md-6">
+            <label>Damage:</label>
+            {{ troop.damage }}
+        </div>
+        <div class="col-md-6">
+            <label>Speed:</label>
+            {{ troop.hitSpeed }}
+        </div>
+
+        <div class="col-md-6">
+            <label>Target:</label>
+            {{ troop.target }}
+        </div>
+        <div class="col-md-6">
+            <label>Speed:</label>
+            {{ troop.speed }}
+        </div>
+
+        <div class="col-md-6">
+            <label>Range:</label>
+            {{ troop.range }}
+        </div>
+        <div class="col-md-6">
+            <label>Cost:</label>
+            {{ troop.cost }}
+        </div>
+    </div>
+</div>
