@@ -1,4 +1,4 @@
-Clash Royale tools
+Clash royale tools
 ==================
 
-A Symfony project created on May 14, 2016, 8:59 am.
+A set of tools built in Symfony about Supercell game Clash Royale. Not official, of course.
