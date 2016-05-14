@@ -1,0 +1,36 @@
+
+# System files
+.DS_Store
+.idea
+
+# Cache and logs (Symfony3)
+/var/cache/*
+!var/cache/.gitkeep
+/var/logs/*
+!var/logs/.gitkeep
+/var/sessions/*
+!var/sessions/.gitkeep
+
+# Managed by Composer
+/var/SymfonyRequirements.php
+/var/bootstrap.php.cache
+/bin/*
+!bin/console
+!bin/symfony_requirements
+/vendor/
+web/app_dev.php
+app/config/parameters.yml
+
+# Assets and user uploads
+/web/bundles/
+/web/uploads/
+
+# PHPUnit
+/app/phpunit.xml
+/coverage
+
+# Build data
+/build/
+
+# apache
+apache/
