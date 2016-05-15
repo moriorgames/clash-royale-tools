@@ -19,6 +19,7 @@ link:
 
 calculate:
     title: Calculadora de eficiencia
+    average_elixir: "<strong>points</strong> de coste medio de elixir"
     efficiency:
         by_cost: Cada punto de elixir aporta
         hitpoints: "<strong>points</strong> puntos de vida"

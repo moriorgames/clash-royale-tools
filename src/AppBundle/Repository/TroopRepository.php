@@ -10,6 +10,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class TroopRepository extends EntityRepository
 {
+    public function findAllAndGroupBySlug()
+    {
+        return $this->createQueryBuilder('t')
+            ->groupBy('t.slug')
+            ->getQuery()
+            ->getResult();
+    }
+
     /**
      * @param array $deck
      *
