@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+
+            <div id="welcome">
+                <h1>{{ 'project_welcome'|trans|raw }}</h1>
+            </div>
+
+            <div id="status">
+                {{ 'project_description'|trans|raw }}
+            </div>
+
+            <div class="col-md-12">
+                <div class="row">
+                    {{ 'calculator_empty'|trans }}
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="row">
+                    {{ 'calculator_empty'|trans }}
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <h2>{{ 'calculator_result'|trans }}</h2>
+                <div class="row">
+                    {{ 'calculator_empty'|trans }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

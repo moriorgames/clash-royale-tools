@@ -1,0 +1,10 @@
+services:
+
+    app.deck_session_storage:
+        class: AppBundle\Services\DeckSessionStorage
+        arguments:
+            - "@session"
+            - "@doctrine.orm.entity_manager"
+
+    app.efficiency_calculator:
+        class: AppBundle\Services\EfficiencyCalculator

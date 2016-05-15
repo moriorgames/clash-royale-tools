@@ -16,12 +16,12 @@
                 </div>
                 <div class="col-md-6 pull-left">
                     <div class="col-md-12">
-                        <label for="name">Name:</label>
+                        <label for="name">{{ 'crud.name'|trans }}:</label>
                         <input type="text" id="name" name="name"
                                value="{{ troop.name }}" class="form-control"/>
                     </div>
                     <div class="col-md-12">
-                        <label for="battleEntityType">Type:</label>
+                        <label for="battleEntityType">{{ 'crud.type'|trans }}:</label>
                         {% set types =  constant('CoreBundle\\Constants::BATTLE_ENTITY_TYPES') %}
                         <select id="battleEntityType" name="battleEntityType" class="form-control">
                             {% for type in types %}
@@ -30,7 +30,7 @@
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <label for="level">Level:</label>
+                        <label for="level">{{ 'crud.level'|trans }}:</label>
                         <input type="text" id="level" name="level"
                                value="{{ troop.level }}" class="form-control"/>
                     </div>
@@ -38,59 +38,70 @@
             </div>
 
             <div class="col-md-6">
-                <label for="hitPoints">Hit points:</label>
+                <label for="hitPoints">{{ 'crud.hit_points'|trans }}:</label>
                 <input type="text" id="hitPoints" name="hitPoints"
                        value="{{ troop.hitPoints }}" class="form-control"/>
             </div>
             <div class="col-md-6">
-                <label for="dps">DPS:</label>
+                <label for="dps">{{ 'crud.dps'|trans }}:</label>
                 <input type="text" id="dps" name="dps"
                        value="{{ troop.dps }}" class="form-control"/>
             </div>
 
             <div class="col-md-6">
-                <label for="damage">Damage:</label>
+                <label for="damage">{{ 'crud.damage'|trans }}:</label>
                 <input type="text" id="damage" name="damage"
                        value="{{ troop.damage }}" class="form-control"/>
             </div>
             <div class="col-md-6">
-                <label for="speed">Speed:</label>
-                {% set movements =  constant('CoreBundle\\Constants::BATTLE_ENTITY_MOVEMENTS') %}
-                <select id="speed" name="speed" class="form-control">
-                    {% for speed in movements %}
-                        <option value="{{ speed }}">{{ speed }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-
-            <div class="col-md-6">
-                <label for="target">Target:</label>
-                {% set targets =  constant('CoreBundle\\Constants::BATTLE_ENTITY_TARGETS') %}
-                <select id="target" name="target" class="form-control">
-                    {% for target in targets %}
-                        <option value="{{ target }}">{{ target }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="col-md-6">
-                <label for="hitSpeed">Hit Speed:</label>
+                <label for="hitSpeed">{{ 'crud.hit_speed'|trans }}:</label>
                 <input type="text" id="hitSpeed" name="hitSpeed"
                        value="{{ troop.hitSpeed }}" class="form-control"/>
             </div>
 
             <div class="col-md-6">
-                <label for="range">Range:</label>
+                <label for="target">{{ 'crud.target'|trans }}:</label>
+                {% set targets =  constant('CoreBundle\\Constants::BATTLE_ENTITY_TARGETS') %}
+                <select id="target" name="target" class="form-control">
+                    {% for target in targets %}
+                        <option value="{{ target }}" {% if troop.target == target %}selected{% endif %}>{{ target }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="speed">{{ 'crud.speed'|trans }}:</label>
+                {% set movements =  constant('CoreBundle\\Constants::BATTLE_ENTITY_MOVEMENTS') %}
+                <select id="speed" name="speed" class="form-control">
+                    {% for speed in movements %}
+                        <option value="{{ speed }}" {% if troop.speed == speed %}selected{% endif %}>{{ speed }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="range">{{ 'crud.range'|trans }}:</label>
                 <input type="text" id="range" name="range"
                        value="{{ troop.range }}" class="form-control"/>
             </div>
             <div class="col-md-6">
-                <label for="cost">Cost:</label>
+                <label for="cost">{{ 'crud.cost'|trans }}:</label>
                 <input type="text" id="cost" name="cost"
                        value="{{ troop.cost }}" class="form-control"/>
             </div>
 
+            <div class="col-md-6">
+                <label for="deploy">{{ 'crud.deploy'|trans }}:</label>
+                <input type="text" id="deploy" name="deploy"
+                       value="{{ troop.deploy }}" class="form-control"/>
+            </div>
+            <div class="col-md-6">
+                <label for="units">{{ 'crud.units'|trans }}:</label>
+                <input type="text" id="units" name="units"
+                       value="{{ troop.units }}" class="form-control"/>
+            </div>
+
             <div class="col-md-12">
-                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Edit"/>
+                <input type="submit" class="btn btn-primary btn-lg btn-block" value="{{ 'link.edit'|trans }}"/>
             </div>
 
         </div>
