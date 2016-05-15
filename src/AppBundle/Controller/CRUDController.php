@@ -35,6 +35,22 @@ class CRUDController extends Controller
         return $tplVars;
     }
 
+    ///**
+    // * @Route("/list", name="crud_list")
+    // * @Method("GET")
+    // * @Template()
+    // *
+    // * @return array
+    // */
+    //public function listAction()
+    //{
+    //    $em = $this->getDoctrine();
+    //    $repo = $em->getRepository('AppBundle:Troop');
+    //    $tplVars['troops'] = $repo->findAllAndGroupBySlug();
+    //
+    //    return $tplVars;
+    //}
+
     /**
      * @Route("/edit/{id}", name="crud_edit")
      * @Method("GET")

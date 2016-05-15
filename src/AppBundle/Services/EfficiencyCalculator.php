@@ -19,11 +19,13 @@ class EfficiencyCalculator
     public function calculateDeckEfficiency(array $troops = [])
     {
         $efficiency = [
+            'elixir'          => 0,
             'hitPoints'       => 0,
             'groundDamage'    => 0,
             'airDamage'       => 0,
             'structureDamage' => 0,
         ];
+        $elixir = [];
         $hitPoints = [];
         $groundDamage = [];
         $airDamage = [];
@@ -31,6 +33,7 @@ class EfficiencyCalculator
 
         /** @var Troop $troop */
         foreach ($troops as $troop) {
+            $elixir[] = $troop->getCost();
             $hitPoints[] = $this->hitPointsEfficiency($troop);
             $groundDamage[] = $this->groundDamageEfficiency($troop);
             $airDamage[] = $this->airDamageEfficiency($troop);
@@ -39,9 +42,10 @@ class EfficiencyCalculator
 
         if ($hitPoints) {
             $efficiency = [
-                'hitPoints'    => $this->arrayAverage($hitPoints),
-                'groundDamage' => $this->arrayAverage($groundDamage),
-                'airDamage' => $this->arrayAverage($airDamage),
+                'elixir'          => $this->arrayAverage($elixir),
+                'hitPoints'       => $this->arrayAverage($hitPoints),
+                'groundDamage'    => $this->arrayAverage($groundDamage),
+                'airDamage'       => $this->arrayAverage($airDamage),
                 'structureDamage' => $this->arrayAverage($structureDamage),
             ];
         }
@@ -72,7 +76,7 @@ class EfficiencyCalculator
             $target === Constants::BATTLE_ENTITY_TARGET_GROUND_AIR ||
             $target === Constants::BATTLE_ENTITY_TARGET_GROUND
         ) ?
-            ($troop->getDamage() * $troop->getUnits()) / $troop->getCost() :
+            ($troop->getDps() * $troop->getUnits()) / $troop->getCost() :
             0;
     }
 
@@ -88,7 +92,7 @@ class EfficiencyCalculator
         return (
             $target === Constants::BATTLE_ENTITY_TARGET_GROUND_AIR
         ) ?
-            ($troop->getDamage() * $troop->getUnits()) / $troop->getCost() :
+            ($troop->getDps() * $troop->getUnits()) / $troop->getCost() :
             0;
     }
 
@@ -106,7 +110,7 @@ class EfficiencyCalculator
             $target === Constants::BATTLE_ENTITY_TARGET_GROUND ||
             $target === Constants::BATTLE_ENTITY_TARGET_BUILDINGS
         ) ?
-            ($troop->getDamage() * $troop->getUnits()) / $troop->getCost() :
+            ($troop->getDps() * $troop->getUnits()) / $troop->getCost() :
             0;
     }
 

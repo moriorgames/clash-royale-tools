@@ -15,6 +15,7 @@
             <div class="col-md-12 pull-left">
                 <ul>
                     <li>{{ 'calculate.efficiency.by_cost'|trans }}:</li>
+                    <li>{{ 'calculate.average_elixir'|trans({points: efficiency.elixir})|raw }}:</li>
                     <li>{{ 'calculate.efficiency.hitpoints'|trans({points: efficiency.hitPoints})|raw }}</li>
                     <li>{{ 'calculate.efficiency.ground_damage'|trans({points: efficiency.groundDamage})|raw }}</li>
                     <li>{{ 'calculate.efficiency.air_damage'|trans({points: efficiency.airDamage})|raw }}</li>
