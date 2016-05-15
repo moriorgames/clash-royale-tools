@@ -2,9 +2,17 @@
     <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="{{ path('calculate') }}">
+                <a class="navbar-brand" href="{{ path('homepage') }}">
                     {{ 'project_name'|trans }}
                 </a>
+
+                {% set deck = app.session.get('deck') %}
+                {% if deck is defined %}
+                    <span class="navbar-brand">
+                        {{ 'menu.crud.deck'|transchoice(deck|length) }}
+                    </span>
+                {% endif %}
+
             </div>
             <div class="navbar-collapse collapse">
 

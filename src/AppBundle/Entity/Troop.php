@@ -34,7 +34,7 @@ class Troop
     /**
      * @var int
      *
-     * @ORM\Column(type="integer", options={"default"=0})
+     * @ORM\Column(type="decimal", precision=2, scale=1)
      * @Assert\Type(type="integer")
      */
     private $hitSpeed;
@@ -66,10 +66,26 @@ class Troop
     /**
      * @var int
      *
-     * @ORM\Column(type="integer", options={"default"=0})
+     * @ORM\Column(type="integer", options={"default"=1})
      * @Assert\Type(type="integer")
      */
     private $cost;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", options={"default"=1})
+     * @Assert\Type(type="integer")
+     */
+    private $deploy;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", options={"default"=1})
+     * @Assert\Type(type="integer")
+     */
+    private $units;
 
     /**
      * @return int
@@ -193,6 +209,46 @@ class Troop
     public function setCost($cost)
     {
         $this->cost = $cost;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDeploy()
+    {
+        return $this->deploy;
+    }
+
+    /**
+     * @param int $deploy
+     *
+     * @return $this
+     */
+    public function setDeploy($deploy)
+    {
+        $this->deploy = $deploy;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUnits()
+    {
+        return $this->units;
+    }
+
+    /**
+     * @param int $units
+     *
+     * @return $this
+     */
+    public function setUnits($units)
+    {
+        $this->units = $units;
 
         return $this;
     }

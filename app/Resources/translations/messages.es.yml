@@ -1,8 +1,45 @@
 project_name: Clash Royale Tools
 project_welcome: "<span>Bienvenidos</span> al calculador de eficiencia de Clash Royale"
 project_description: "Clash Royale Tools es un proyecto creado para medir diferentes factores de eficiencia de las tropas. Las tropas se pueden actualizar para tener el listado de tropas al día. Se pueden añadir también nuevos elementos a la base de datos. Si algún dato no es correcto edítalo y obtendrás unos resultados de eficiencia actualizados"
+
+calculator_empty: Selecciona 8 cartas del listado para ver el cálculo de eficiencia
+calculator_result: Resultado del calculador
+
 menu:
     homepage: Inicio
+    calculate: Calculador de eficiencia
     crud:
         list: Listado de tropas
         edit: Crea o edita tropas
+        deck: "{0} Sin baraja|{1} Tu baraja tiene una carta|[2,Inf] Tu baraja tiene %count% cartas"
+
+link:
+    edit: Editar
+    remove_from_deck: Quitar de la baraja
+
+calculate:
+    title: Calculadora de eficiencia
+    efficiency:
+        by_cost: Cada punto de elixir aporta
+        hitpoints: "<strong>points</strong> puntos de vida"
+        ground_damage: "<strong>points</strong> de daño a unidades <strong>Terrestres</strong>"
+        air_damage: "<strong>points</strong> de daño a unidades <strong>Aéreas</strong>"
+        structure_damage: "<strong>points</strong> de daño <strong>Estructural</strong>"
+
+crud:
+    list: Listado de tropas por tipo
+    edit: Crea o edita
+    name: Nombre
+    type: Tipo
+    level: Nivel
+    hit_points: Puntos de vida
+    dps: DPS
+    damage: Daño
+    hit_speed: Vel. de ataque
+    target: Objetivos
+    speed: Velocidad
+    range: Alcance
+    deploy: Tiempo despliegue
+    units: Unidades
+    cost: Elixir
+    add_to_deck: Añadir a mi baraja

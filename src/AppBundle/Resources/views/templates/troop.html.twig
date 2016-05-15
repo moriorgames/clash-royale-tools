@@ -8,57 +8,69 @@
             </div>
             <div class="col-md-6 pull-left">
                 <div class="col-md-12">
-                    <label>Name:</label>
+                    <label>{{ 'crud.name'|trans }}:</label>
                     {{ troop.name }}
                 </div>
                 <div class="col-md-12">
-                    <label>Type:</label>
+                    <label>{{ 'crud.type'|trans }}:</label>
                     {{ troop.battleEntityType }}
                 </div>
                 <div class="col-md-12">
-                    <label>Level:</label>
+                    <label>{{ 'crud.level'|trans }}:</label>
                     {{ troop.level }}
                 </div>
                 <div class="col-md-12">
-                    <a href="{{ path('crud_edit', {id: troop.id}) }}">Edit</a>
+                    <a href="{{ path('crud_edit', {id: troop.id}) }}">{{ 'link.edit'|trans }}</a>
+                </div>
+                <div class="col-md-12">
+                    <a href="{{ path('add_to_deck', {id: troop.id}) }}">{{ 'crud.add_to_deck'|trans }}</a>
                 </div>
             </div>
         </div>
 
         <div class="col-md-6">
-            <label>Hit points:</label>
+            <label>{{ 'crud.hit_points'|trans }}:</label>
             {{ troop.hitPoints }}
         </div>
         <div class="col-md-6">
-            <label>DPS:</label>
+            <label>{{ 'crud.dps'|trans }}:</label>
             {{ troop.dps }}
         </div>
 
         <div class="col-md-6">
-            <label>Damage:</label>
+            <label>{{ 'crud.damage'|trans }}:</label>
             {{ troop.damage }}
         </div>
         <div class="col-md-6">
-            <label>Speed:</label>
+            <label>{{ 'crud.hit_speed'|trans }}:</label>
             {{ troop.hitSpeed }}
         </div>
 
         <div class="col-md-6">
-            <label>Target:</label>
+            <label>{{ 'crud.target'|trans }}:</label>
             {{ troop.target }}
         </div>
         <div class="col-md-6">
-            <label>Speed:</label>
+            <label>{{ 'crud.speed'|trans }}:</label>
             {{ troop.speed }}
         </div>
 
         <div class="col-md-6">
-            <label>Range:</label>
+            <label>{{ 'crud.range'|trans }}:</label>
             {{ troop.range }}
         </div>
         <div class="col-md-6">
-            <label>Cost:</label>
+            <label>{{ 'crud.cost'|trans }}:</label>
             {{ troop.cost }}
+        </div>
+
+        <div class="col-md-6">
+            <label>{{ 'crud.deploy'|trans }}:</label>
+            {{ troop.deploy }}
+        </div>
+        <div class="col-md-6">
+            <label>{{ 'crud.units'|trans }}:</label>
+            {{ troop.units }}
         </div>
     </div>
 </div>

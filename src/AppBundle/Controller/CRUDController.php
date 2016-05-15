@@ -106,7 +106,9 @@ class CRUDController extends Controller
             ->setTarget($parameters->get('target'))
             ->setHitSpeed($parameters->get('hitSpeed'))
             ->setRange($parameters->get('range'))
-            ->setCost($parameters->get('cost'));
+            ->setCost($parameters->get('cost'))
+            ->setDeploy($parameters->get('deploy'))
+            ->setUnits($parameters->get('units'));
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($troop);

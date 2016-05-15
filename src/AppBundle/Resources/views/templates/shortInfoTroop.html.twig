@@ -1,0 +1,19 @@
+<div class="col-md-3 card-info">
+    <div class="row">
+
+        <div class="meta">
+            <div class="col-md-12 pull-left">
+                {% set imagePath = 'images/troop/' ~ troop.slug ~ '.png' %}
+                <img src="{{ asset(imagePath) }}"/>
+            </div>
+            <div class="col-md-12 pull-left">
+                <div class="col-md-12">
+                    {{ troop.name }}
+                </div>
+            </div>
+            <div class="col-md-12">
+                <a href="{{ path('remove_from_deck', {id: troop.id}) }}">{{ 'link.remove_from_deck'|trans }}</a>
+            </div>
+        </div>
+    </div>
+</div>
