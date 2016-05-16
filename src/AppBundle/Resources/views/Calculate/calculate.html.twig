@@ -13,15 +13,11 @@
             {% endfor %}
 
             <div class="col-md-12 pull-left">
-                <ul>
-                    <li>{{ 'calculate.efficiency.by_cost'|trans }}:</li>
-                    <li>{{ 'calculate.average_elixir'|trans({points: efficiency.elixir})|raw }}:</li>
-                    <li>{{ 'calculate.efficiency.hitpoints'|trans({points: efficiency.hitPoints})|raw }}</li>
-                    <li>{{ 'calculate.efficiency.ground_damage'|trans({points: efficiency.groundDamage})|raw }}</li>
-                    <li>{{ 'calculate.efficiency.air_damage'|trans({points: efficiency.airDamage})|raw }}</li>
-                    <li>{{ 'calculate.efficiency.structure_damage'|trans({points: efficiency.structureDamage})|raw }}</li>
-                </ul>
+                <p>{{ 'calculate.average_elixir'|trans({points: efficiency.elixir})|raw }}</p>
+                <p>{{ 'calculate.efficiency.by_cost'|trans }}</p>
+                {% include '@App/templates/efficiency.html.twig' with {efficiency: efficiency} %}
             </div>
+
         </div>
     </div>
 {% endblock %}

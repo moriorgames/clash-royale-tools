@@ -88,6 +88,11 @@ class Troop
     private $units;
 
     /**
+     * @var array
+     */
+    private $efficiency = [];
+
+    /**
      * @return int
      */
     public function getLevel()
@@ -249,6 +254,26 @@ class Troop
     public function setUnits($units)
     {
         $this->units = $units;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getEfficiency()
+    {
+        return $this->efficiency;
+    }
+
+    /**
+     * @param array $efficiency
+     *
+     * @return $this
+     */
+    public function setEfficiency(array $efficiency)
+    {
+        $this->efficiency = $efficiency;
 
         return $this;
     }

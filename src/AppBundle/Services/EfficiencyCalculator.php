@@ -12,6 +12,11 @@ use CoreBundle\Constants;
 class EfficiencyCalculator
 {
     /**
+     * @var int
+     */
+    private $averageElixir = 0;
+
+    /**
      * @param array $troops
      *
      * @return array
@@ -34,6 +39,60 @@ class EfficiencyCalculator
         /** @var Troop $troop */
         foreach ($troops as $troop) {
             $elixir[] = $troop->getCost();
+        }
+        $this->averageElixir = round(array_sum($elixir) / count($elixir), 2);
+
+        if ($this->averageElixir > 0) {
+            /** @var Troop $troop */
+            foreach ($troops as $troop) {
+                $hitPoints[] = $this->hitPointsEfficiency($troop);
+                $groundDamage[] = $this->groundDamageEfficiency($troop);
+                $airDamage[] = $this->airDamageEfficiency($troop);
+                $structureDamage[] = $this->structureDamageEfficiency($troop);
+                $troop->setEfficiency($this->calculateTroopEfficiency($troop));
+            }
+
+        }
+
+        if ($hitPoints) {
+            $efficiency = [
+                'elixir'          => $this->averageElixir,
+                'hitPoints'       => $this->arrayAverage($hitPoints),
+                'groundDamage'    => $this->arrayAverage($groundDamage),
+                'airDamage'       => $this->arrayAverage($airDamage),
+                'structureDamage' => $this->arrayAverage($structureDamage),
+            ];
+        }
+
+        return $efficiency;
+    }
+
+    /**
+     * @param Troop $troop
+     *
+     * @return array
+     */
+    public function calculateTroopEfficiency(Troop $troop)
+    {
+        $efficiency = [
+            'elixir'          => 0,
+            'hitPoints'       => 0,
+            'groundDamage'    => 0,
+            'airDamage'       => 0,
+            'structureDamage' => 0,
+        ];
+        $elixir = [];
+        $hitPoints = [];
+        $groundDamage = [];
+        $airDamage = [];
+        $structureDamage = [];
+
+
+        $elixir[] = $troop->getCost();
+
+        $this->averageElixir = round(array_sum($elixir) / count($elixir), 2);
+
+        if ($this->averageElixir > 0) {
             $hitPoints[] = $this->hitPointsEfficiency($troop);
             $groundDamage[] = $this->groundDamageEfficiency($troop);
             $airDamage[] = $this->airDamageEfficiency($troop);
@@ -42,7 +101,7 @@ class EfficiencyCalculator
 
         if ($hitPoints) {
             $efficiency = [
-                'elixir'          => $this->arrayAverage($elixir),
+                'elixir'          => $this->averageElixir,
                 'hitPoints'       => $this->arrayAverage($hitPoints),
                 'groundDamage'    => $this->arrayAverage($groundDamage),
                 'airDamage'       => $this->arrayAverage($airDamage),
@@ -121,6 +180,6 @@ class EfficiencyCalculator
      */
     private function arrayAverage(array $array = [])
     {
-        return round(array_sum($array) / count($array), 2);
+        return round((array_sum($array) / count($array))/$this->averageElixir, 2);
     }
 }
