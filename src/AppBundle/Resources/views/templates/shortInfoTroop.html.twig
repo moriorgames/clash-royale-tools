@@ -14,6 +14,11 @@
             <div class="col-md-12">
                 <a href="{{ path('remove_from_deck', {id: troop.id}) }}">{{ 'link.remove_from_deck'|trans }}</a>
             </div>
+
+            <div class="col-md-12">
+            {% include '@App/templates/efficiency.html.twig' with {efficiency: troop.efficiency} %}
+            </div>
+
         </div>
     </div>
 </div>
