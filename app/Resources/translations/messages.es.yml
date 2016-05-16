@@ -26,17 +26,19 @@ calculate:
         ground_damage: "<strong>points</strong> de daño a unidades <strong>Terrestres</strong>"
         air_damage: "<strong>points</strong> de daño a unidades <strong>Aéreas</strong>"
         structure_damage: "<strong>points</strong> de daño <strong>Estructural</strong>"
+    efficiency_short:
+        hitpoints: "<strong>points HP</strong>"
+        ground_damage: "<strong>points Terrestres</strong>"
+        air_damage: "<strong>points Aéreas</strong>"
+        structure_damage: "<strong>points Estructural</strong>"
 
 crud:
     list: Listado de tropas por tipo
     edit: Crea o edita
     name: Nombre
     type: Tipo
-    level: Nivel
     hit_points: Puntos de vida
     dps: DPS
-    damage: Daño
-    hit_speed: Vel. de ataque
     target: Objetivos
     speed: Velocidad
     range: Alcance

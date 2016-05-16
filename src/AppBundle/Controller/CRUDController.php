@@ -30,26 +30,17 @@ class CRUDController extends Controller
     {
         $em = $this->getDoctrine();
         $repo = $em->getRepository('AppBundle:Troop');
-        $tplVars['troops'] = $repo->findAll();
+        $tplVars['troops'] = $repo->findAllAndOrdered();
+        $tplVars['efficiency'] = $this->get('app.efficiency_calculator')
+            ->calculateDeckEfficiency($tplVars['troops']);
+
+        foreach ($tplVars['troops'] as $troop) {
+            $this->get('app.efficiency_calculator')
+                ->calculateTroopEfficiency($troop);
+        }
 
         return $tplVars;
     }
-
-    ///**
-    // * @Route("/list", name="crud_list")
-    // * @Method("GET")
-    // * @Template()
-    // *
-    // * @return array
-    // */
-    //public function listAction()
-    //{
-    //    $em = $this->getDoctrine();
-    //    $repo = $em->getRepository('AppBundle:Troop');
-    //    $tplVars['troops'] = $repo->findAllAndGroupBySlug();
-    //
-    //    return $tplVars;
-    //}
 
     /**
      * @Route("/edit/{id}", name="crud_edit")
@@ -114,13 +105,10 @@ class CRUDController extends Controller
         $troop
             ->setName($parameters->get('name'))
             ->setBattleEntityType($parameters->get('battleEntityType'))
-            ->setLevel($parameters->get('level'))
             ->setHitPoints($parameters->get('hitPoints'))
             ->setDps($parameters->get('dps'))
-            ->setDamage($parameters->get('damage'))
             ->setSpeed($parameters->get('speed'))
             ->setTarget($parameters->get('target'))
-            ->setHitSpeed($parameters->get('hitSpeed'))
             ->setRange($parameters->get('range'))
             ->setCost($parameters->get('cost'))
             ->setDeploy($parameters->get('deploy'))

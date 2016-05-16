@@ -10,10 +10,10 @@ use Doctrine\ORM\EntityRepository;
  */
 class TroopRepository extends EntityRepository
 {
-    public function findAllAndGroupBySlug()
+    public function findAllAndOrdered()
     {
         return $this->createQueryBuilder('t')
-            ->groupBy('t.slug')
+            ->orderBy('t.name')
             ->getQuery()
             ->getResult();
     }

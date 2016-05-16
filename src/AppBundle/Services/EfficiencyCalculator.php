@@ -49,7 +49,6 @@ class EfficiencyCalculator
                 $groundDamage[] = $this->groundDamageEfficiency($troop);
                 $airDamage[] = $this->airDamageEfficiency($troop);
                 $structureDamage[] = $this->structureDamageEfficiency($troop);
-                $troop->setEfficiency($this->calculateTroopEfficiency($troop));
             }
 
         }
@@ -62,6 +61,14 @@ class EfficiencyCalculator
                 'airDamage'       => $this->arrayAverage($airDamage),
                 'structureDamage' => $this->arrayAverage($structureDamage),
             ];
+        }
+
+        if ($this->averageElixir > 0) {
+            /** @var Troop $troop */
+            foreach ($troops as $troop) {
+                $troop->setEfficiency($this->calculateTroopEfficiency($troop));
+            }
+
         }
 
         return $efficiency;

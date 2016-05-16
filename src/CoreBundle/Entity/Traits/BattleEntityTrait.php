@@ -16,14 +16,6 @@ trait BattleEntityTrait
      * @ORM\Column(type="integer", options={"default"=0})
      * @Assert\Type(type="integer")
      */
-    private $damage;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(type="integer", options={"default"=0})
-     * @Assert\Type(type="integer")
-     */
     private $dps;
 
     /**
@@ -45,26 +37,6 @@ trait BattleEntityTrait
     /**
      * @return int
      */
-    public function getDamage()
-    {
-        return $this->damage;
-    }
-
-    /**
-     * @param int $damage
-     *
-     * @return $this
-     */
-    public function setDamage($damage)
-    {
-        $this->damage = $damage;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
     public function getDps()
     {
         return $this->dps;
@@ -76,26 +48,6 @@ trait BattleEntityTrait
      * @return $this
      */
     public function setDps($dps)
-    {
-        $this->dps = $dps;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getRange()
-    {
-        return $this->dps;
-    }
-
-    /**
-     * @param int $dps
-     *
-     * @return $this
-     */
-    public function setRange($dps)
     {
         $this->dps = $dps;
 
