@@ -5,6 +5,7 @@
             <div class="col-md-6 pull-left">
                 {% set imagePath = 'images/troop/' ~ troop.slug ~ '.png'  %}
                 <img src="{{ asset(imagePath) }}" />
+                <div class="cost-info">{{ troop.cost }}</div>
             </div>
             <div class="col-md-6 pull-left">
                 <div class="col-md-12">
@@ -15,14 +16,13 @@
                     {{ troop.battleEntityType }}
                 </div>
                 <div class="col-md-12">
-                    <label>{{ 'crud.level'|trans }}:</label>
-                    {{ troop.level }}
-                </div>
-                <div class="col-md-12">
                     <a href="{{ path('crud_edit', {id: troop.id}) }}">{{ 'link.edit'|trans }}</a>
                 </div>
                 <div class="col-md-12">
                     <a href="{{ path('add_to_deck', {id: troop.id}) }}">{{ 'crud.add_to_deck'|trans }}</a>
+                </div>
+                <div class="col-md-12">
+                    {% include '@App/templates/efficiencyShort.html.twig' with {efficiency: troop.efficiency} %}
                 </div>
             </div>
         </div>
@@ -34,15 +34,6 @@
         <div class="col-md-6">
             <label>{{ 'crud.dps'|trans }}:</label>
             {{ troop.dps }}
-        </div>
-
-        <div class="col-md-6">
-            <label>{{ 'crud.damage'|trans }}:</label>
-            {{ troop.damage }}
-        </div>
-        <div class="col-md-6">
-            <label>{{ 'crud.hit_speed'|trans }}:</label>
-            {{ troop.hitSpeed }}
         </div>
 
         <div class="col-md-6">

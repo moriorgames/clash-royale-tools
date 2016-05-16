@@ -24,22 +24,6 @@ class Troop
     use BattleEntityTrait;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="troop_level", type="integer", options={"default"=0})
-     * @Assert\Type(type="integer")
-     */
-    private $level;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(type="decimal", precision=2, scale=1)
-     * @Assert\Type(type="integer")
-     */
-    private $hitSpeed;
-
-    /**
      * @var string
      *
      * @ORM\Column(type="string", length=255)
@@ -91,46 +75,6 @@ class Troop
      * @var array
      */
     private $efficiency = [];
-
-    /**
-     * @return int
-     */
-    public function getLevel()
-    {
-        return $this->level;
-    }
-
-    /**
-     * @param int $level
-     *
-     * @return $this
-     */
-    public function setLevel($level)
-    {
-        $this->level = $level;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getHitSpeed()
-    {
-        return $this->hitSpeed;
-    }
-
-    /**
-     * @param int $hitSpeed
-     *
-     * @return $this
-     */
-    public function setHitSpeed($hitSpeed)
-    {
-        $this->hitSpeed = $hitSpeed;
-
-        return $this;
-    }
 
     /**
      * @return string

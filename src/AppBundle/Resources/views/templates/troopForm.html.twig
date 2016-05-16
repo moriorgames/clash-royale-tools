@@ -29,11 +29,6 @@
                             {% endfor %}
                         </select>
                     </div>
-                    <div class="col-md-12">
-                        <label for="level">{{ 'crud.level'|trans }}:</label>
-                        <input type="text" id="level" name="level"
-                               value="{{ troop.level }}" class="form-control"/>
-                    </div>
                 </div>
             </div>
 
@@ -46,17 +41,6 @@
                 <label for="dps">{{ 'crud.dps'|trans }}:</label>
                 <input type="text" id="dps" name="dps"
                        value="{{ troop.dps }}" class="form-control"/>
-            </div>
-
-            <div class="col-md-6">
-                <label for="damage">{{ 'crud.damage'|trans }}:</label>
-                <input type="text" id="damage" name="damage"
-                       value="{{ troop.damage }}" class="form-control"/>
-            </div>
-            <div class="col-md-6">
-                <label for="hitSpeed">{{ 'crud.hit_speed'|trans }}:</label>
-                <input type="text" id="hitSpeed" name="hitSpeed"
-                       value="{{ troop.hitSpeed }}" class="form-control"/>
             </div>
 
             <div class="col-md-6">

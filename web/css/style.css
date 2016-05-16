@@ -60,3 +60,12 @@ h1 {
     border-radius: 5px;
     padding: 20px;
 }
+
+.card-info .cost-info {
+    font-size: 24px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-top: -204px;
+    margin-left: 14px;
+    margin-bottom: 210px;
+}
